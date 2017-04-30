@@ -1,5 +1,6 @@
 require_relative("../db/sql_runner")
 require_relative("./customer.rb")
+require_relative("./screening.rb")
 
 class Film
 
@@ -47,6 +48,12 @@ class Film
 
   def number_of_bookings
     self.customers.count
+  end
+
+  def times
+    sql = "SELECT * FROM screenings WHERE film_id = #{id}"
+    screenings = SqlRunner.run(sql)
+    screenings.map {|screening| Screening.new(screening)}
   end
 
   def self.return_many(sql)

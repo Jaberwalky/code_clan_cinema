@@ -20,6 +20,4 @@ class Screening
     result = SqlRunner.run(sql).first
     @id = result['id'].to_i
   end
-
-
 end
