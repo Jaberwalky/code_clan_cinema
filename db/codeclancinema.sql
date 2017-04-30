@@ -1,3 +1,4 @@
+DROP TABLE screenings;
 DROP TABLE tickets;
 DROP TABLE films;
 DROP TABLE customers;
@@ -22,5 +23,7 @@ CREATE TABLE tickets (
 );
 
 CREATE TABLE screenings (
-  
-)
+  id SERIAL4 PRIMARY KEY,
+  film_id INT4 REFERENCES films(id) ON DELETE CASCADE,
+  showtime VARCHAR(255)
+);
