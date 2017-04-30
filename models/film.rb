@@ -1,4 +1,5 @@
 require_relative("../db/sql_runner")
+require_relative("./customer.rb")
 
 class Film
 
@@ -34,6 +35,14 @@ class Film
   def delete()
     sql = "DELETE FROM films WHERE id = #{@id}"
     SqlRunner.run(sql)
+  end
+
+  def customers()
+    sql = "SELECT c.* FROM customers c
+          INNER JOIN tickets t
+          ON t.customer_id = c.id 
+          WHERE film_id = #{@id};"
+    Customer.return_many(sql)
   end
 
   def self.return_many(sql)
