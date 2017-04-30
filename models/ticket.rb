@@ -41,4 +41,6 @@ class Ticket
     tickets.map {|ticket| Ticket.new(ticket)}
   end
 
+
+
 end

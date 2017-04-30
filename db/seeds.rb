@@ -15,10 +15,11 @@ customer1.save()
 
 
 
-film1 = Film.new({"title" => "Guardians of the Galaxy - Vol 2", "price" => 9.20})
+film1 = Film.new({"title" => "Guardians of the Galaxy - Vol 2", "price" => 9})
 film1.save()
 
 ticket1 = Ticket.new({"customer_id" => customer1.id, "film_id" => film1.id})
+customer1.pay_for_ticket(film1)
 ticket1.save()
 
 

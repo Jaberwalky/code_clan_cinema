@@ -45,6 +45,13 @@ class Customer
     Film.return_many(sql)
   end
 
+  def pay_for_ticket(film)
+    price = film.price
+    @funds -= price
+    sql = "UPDATE customers SET (funds) = ('#{funds}') WHERE id = #{id}"
+    SqlRunner.run(sql)
+  end
+
   def self.return_many(sql)
     customers = SqlRunner.run(sql)
     customers.map {|customer| Customer.new(customer)}
