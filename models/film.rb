@@ -45,6 +45,10 @@ class Film
     Customer.return_many(sql)
   end
 
+  def number_of_bookings
+    self.customers.count
+  end
+
   def self.return_many(sql)
     films = SqlRunner.run(sql)
     films.map {|film| Film.new(film)}

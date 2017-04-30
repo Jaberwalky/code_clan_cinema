@@ -20,3 +20,7 @@ CREATE TABLE tickets (
   customer_id INT4 REFERENCES customers(id) ON DELETE CASCADE,
   film_id INT4 REFERENCES films(id) ON DELETE CASCADE
 );
+
+CREATE TABLE screenings (
+  
+)
